@@ -1,0 +1,67 @@
+package Biasi;
+
+public class Produto {
+
+    private String Nome;
+    private double Preco;
+    private int Qtde;
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
+
+    public double getPreco() {
+        return Preco;
+    }
+
+    public void setPreco(double preco) {
+        Preco = preco;
+    }
+
+    public int getQtde() {
+        return Qtde;
+    }
+
+    public void setQtde(int qtde) {
+        Qtde = qtde;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto: " + Nome
+        
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        
+    package Biasi;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("funciona pfv");
+
+      Produto produto1 = new Produto();
+        produto1.setNome("Notebook");
+        produto1.setPreco(2.999);
+        produto1.setQtde(100);
+
+        Produto produto2 = new Produto();
+        produto2.setNome("Mouse");
+        produto2.setPreco(49.99);
+        produto2.setQtde(100);
+
+        Produto produto3 = new Produto();
+        produto3.setNome("Fone");
+        produto3.setPreco(99.99);
+        produto3.setQtde(100);
+    }
+}
+        
+                + ", nome: " + Nome
+                + ", preco: " + Preco
+                + ", qtde: " + Qtde;
+    }
+}
