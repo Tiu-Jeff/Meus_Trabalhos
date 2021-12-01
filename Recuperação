@@ -33,10 +33,15 @@ public class Produto {
     @Override
     public String toString() {
         return "Produto: " + Nome
+                + ", nome: " + Nome
+                + ", preco: " + Preco
+                + ", qtde: " + Qtde;
+    }
+}
         
         /////////////////////////////////////////////////////////////////////////////////////////////
         
-    package Biasi;
+   package Biasi;
 
 public class Main {
 
@@ -57,11 +62,5 @@ public class Main {
         produto3.setNome("Fone");
         produto3.setPreco(99.99);
         produto3.setQtde(100);
-    }
-}
-        
-                + ", nome: " + Nome
-                + ", preco: " + Preco
-                + ", qtde: " + Qtde;
     }
 }
