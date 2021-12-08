@@ -1,0 +1,92 @@
+package com.example.demo2;
+
+import com.example.demo2.model.Jogos;
+import com.example.demo2.model.Pao;
+import com.example.demo2.model.Sorvete;
+
+public class Main {
+
+   //sorvete
+
+   public static void main(String[] args) {
+       System.out.println("haha battistella");
+
+       Sorvete sorvete1 = new Sorvete();
+       sorvete1.setNome("Neve do Cambirela");
+       sorvete1.setSabor("Flocos");
+       sorvete1.setPreco(4.99);
+
+       Sorvete sorvete2 = new Sorvete();
+       sorvete2.setNome("Terra de Cambride");
+       sorvete2.setSabor("Chocolate");
+       sorvete2.setPreco(5.99);
+
+       Sorvete sorvete3 = new Sorvete();
+       sorvete3.setNome("Baunilha de Sorvete");
+       sorvete3.setSabor("Baunilha");
+       sorvete3.setPreco(4.99);
+
+       Sorvete sorvete4 =
+               new Sorvete(
+                       "Trovão Tropical",
+                       "Tropical",
+                       3.5
+               );
+
+
+       System.out.println(sorvete1);
+       System.out.println(sorvete2);
+       System.out.println(sorvete3);
+
+       //pão
+
+       System.out.println("scrr");
+
+       Pao pão1 = new Pao();
+       pão1.setNome("Cacetinho");
+       pão1.setPreco(2.99);
+
+       Pao pão2 = new Pao();
+       pão2.setNome("Folhado");
+       pão2.setPreco(3.99);
+
+       Pao pão3 = new Pao();
+       pão3.setNome("baguette");
+       pão3.setPreco(4.99);
+
+       Pao pao4 = new Pao();
+       pao4.setNome("pão de brioche");
+       pao4.setPreco(2.55);
+
+       System.out.println(pão1);
+       System.out.println(pão2);
+       System.out.println(pão3);
+       System.out.println(pao4);
+
+
+       //jogos
+
+       System.out.println("Touch U");
+
+       Jogos jogo1 = new Jogos();
+       jogo1.setNome("Doki Doki plus");
+       jogo1.setTipo("Date sin");
+       jogo1.setPreco(40.99);
+
+       Jogos jogo2 = new Jogos();
+       jogo2.setNome("Kingdom Come");
+       jogo2.setTipo("RPG");
+       jogo2.setPreco(49.99);
+
+       Jogos jogo3 = new Jogos();
+       jogo3.setNome("The Witcher 3: Wild Hunt");
+       jogo3.setTipo("RPG");
+       jogo3.setPreco(59.99);
+
+       System.out.println(jogo1);
+       System.out.println(jogo2);
+       System.out.println(jogo3);
+
+   }
+
+}
