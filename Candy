@@ -1,0 +1,408 @@
+package sample;
+
+import sample.controller.ContaDAO;
+
+import sample.model.*;
+
+
+public class Main {
+
+   public static void main(String[] args){
+
+
+       ContaDAO contas = new ContaDAO();
+
+       contas.add("1234-45", "1122-3");
+
+       contas.add("8998-23", "4455-3");
+
+       contas.add("663210-12","765-12");
+
+       contas.depositar("1234-45", "1122-3", 100);
+
+       contas.depositar("8998-23", "4455-3", 200);
+
+       contas.depositar("663210-12","765-12", 300);
+
+       System.out.println(contas);
+
+       System.out.println(contas.sacar("1234-45", "1122-3", 50));
+
+       System.out.println(contas.sacar("8998-23", "4455-3", 100));
+
+       System.out.println(contas.sacar("663210-12","765-12", 800));
+
+       System.out.println(contas);
+
+
+
+       Endereco endereço = new Endereco();
+
+       endereço.setRua("Sete de Setembro");
+
+       endereço.setComplemento("Apto. 204");
+
+       endereço.setNumero(309);
+
+       endereço.setBairro("Centro");
+
+       endereço.setCidade("Florianópolis");
+
+       //System.out.println(endereço);
+
+
+       /*Pessoa pessoa = new Pessoa();
+
+       pessoa.setNome("Israel");
+
+       pessoa.setDataNascimento("07/01/2004");
+
+       pessoa.setEndereço(endereço);
+
+       System.out.println(pessoa);*/
+
+
+       Contato contato = new Contato();
+
+       contato.setEmail("ppg@perinho,br");
+
+       contato.setWpp("48 99882 1234");
+
+       contato.setTt("@gabrielinho");
+
+
+       Ingrediente i = new Ingrediente();
+
+       i.setNome("Ovos");
+
+       i.setQuantidade(4);
+
+       i.setUnidadeM("Unidade");
+
+
+       Ingrediente i2 = new Ingrediente();
+
+       i2.setNome("Chocolate");
+
+       i2.setQuantidade(1);
+
+       i2.setUnidadeM("Barra de 160g");
+
+
+       Ingrediente i3 = new Ingrediente();
+
+       i3.setNome("Farinha");
+
+       i3.setQuantidade(203);
+
+       i3.setUnidadeM("9");
+
+
+       Receita receita = new Receita();
+
+       receita.setNome("Bolo de Chocolate");
+
+       receita.setDescrição("Esse é o bolo da mãe");
+
+       receita.setIngrediente(i);
+
+       receita.setIngrediente(i2);
+
+       receita.setIngrediente(i3);
+
+       System.out.println(receita);
+
+   }
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
+package sample.model;
+
+
+public class Pessoa {
+
+   private String nome;
+
+   private Contato conta;
+
+/*
+
+   private String dataNascimento;
+
+   private Endereco endereço;
+
+*/
+
+
+   public String getNome() {
+
+       return nome;
+
+   }
+
+
+   public void setNome(String nome) {
+
+       this.nome = nome;
+
+   }
+
+
+   public Contato getConta() {
+
+       return conta;
+
+   }
+
+
+   public void setConta(Contato conta) {
+
+       this.conta = conta;
+
+   }
+
+
+   @Override
+
+   public String toString(){
+
+       return "Pessoa: " + nome /*+ ", Data de Nascimento: " + dataNascimento
+
+               + "\n" + endereço*/
+
+               + "\n" + conta;
+
+
+   }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+package sample.model;
+
+
+public class Contato {
+
+
+   private String wpp;
+
+   private String email;
+
+   private String tt;
+
+
+   public String getWpp() {
+
+       return wpp;
+
+   }
+
+
+   public void setWpp(String wpp) {
+
+       this.wpp = wpp;
+
+   }
+
+
+   public String getEmail() {
+
+       return email;
+
+   }
+
+
+   public void setEmail(String email) {
+
+       this.email = email;
+
+   }
+
+
+   public String getTt() {
+
+       return tt;
+
+   }
+
+
+   public void setTt(String tt) {
+
+       this.tt = tt;
+
+   }
+
+
+   @Override
+
+   public String toString(){
+
+      return "Contato: wpp " + wpp + " email: " + email + " tt: " + tt;
+
+
+   }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+package sample.model;
+
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+
+public class Receita {
+
+   private String nome;
+
+   private String descrição;
+
+   private List<Ingrediente> ingredientes;
+
+
+   public Receita(){
+
+       ingredientes = new ArrayList<Ingrediente>();
+
+   }
+
+
+   public String getNome() {
+
+       return nome;
+
+   }
+
+
+   public void setNome(String nome) {
+
+       this.nome = nome;
+
+   }
+
+
+   public String getDescrição() {
+
+       return descrição;
+
+   }
+
+
+   public void setDescrição(String descrição) {
+
+       this.descrição = descrição;
+
+   }
+
+
+   public List<Ingrediente> getIngredientes() {
+
+       return ingredientes;
+
+   }
+
+
+   public void setIngrediente(Ingrediente ingrediente){
+
+       ingredientes.add(ingrediente);
+
+   }
+
+
+   public void setIngrediente(String nome, int quantidade, String unidadeM){
+
+       Ingrediente i = new Ingrediente();
+
+       i.setNome(nome);
+
+       i.setQuantidade(quantidade);
+
+       i.setUnidadeM(unidadeM);
+
+       this.ingredientes.add(i);
+
+   }
+
+
+   @Override
+
+   public String toString(){
+
+       return nome + "\nDescrição: " + descrição
+
+               + "\n" + ingredientes;
+
+   }
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package sample.model;
+
+
+public class Ingrediente {
+
+   private String nome;
+
+   private double quantidade;
+
+   private String unidadeM;
+
+
+   public String getNome() {
+
+       return nome;
+
+   }
+
+
+   public void setNome(String nome) {
+
+       this.nome = nome;
+
+   }
+
+
+   public double getQuantidade() {
+
+       return quantidade;
+
+   }
+
+
+   public void setQuantidade(double quantidade) {
+
+       this.quantidade = quantidade;
+
+   }
+
+
+   public String getUnidadeM() {
+
+       return unidadeM;
+
+   }
+
+
+   public void setUnidadeM(String unidadeM) {
+
+       this.unidadeM = unidadeM;
+
+   }
+
+
+   @Override
+
+   public String toString(){
+
+       return nome + ", " + quantidade + " " + unidadeM;
+
+
+   }
+}
