@@ -1,0 +1,160 @@
+package sample;
+
+import sample.controller.ContaDAO;
+
+
+public class Main {
+
+
+   public static void main(String[] args){
+
+       ContaDAO contas = new ContaDAO();
+
+       contas.add("1234-45", "1122-3");
+
+       contas.add("8998-23", "4455-3");
+
+       contas.add("663218-12", "765-12");
+
+       contas.depositar("1234-45", "1122-3", 500);
+
+       contas.depositar("8998-23", "4455-3", 500);
+
+       contas.depositar("663218-12", "765-12", 500);
+
+       System.out.println(contas);
+
+       contas.sacar("1234-45", "1122-3", 100);
+
+       contas.sacar("8998-23", "4455-3", 200);
+
+       contas.sacar("663218-12", "765-12", 79.99);
+
+       System.out.println(contas);
+
+   }
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+package sample;
+
+import sample.controller.ContaDAO;
+
+
+public class Main {
+
+
+   public static void main(String[] args){
+
+       ContaDAO contas = new ContaDAO();
+
+       contas.add("1234-45", "1122-3");
+
+       contas.add("8998-23", "4455-3");
+
+       contas.add("663218-12", "765-12");
+
+       contas.depositar("1234-45", "1122-3", 500);
+
+       contas.depositar("8998-23", "4455-3", 500);
+
+       contas.depositar("663218-12", "765-12", 500);
+
+       System.out.println(contas);
+
+       System.out.println(contas.sacar("1234-45", "1122-3", 100));
+
+       System.out.println(contas.sacar("8998-23", "4455-3", 200));
+
+       System.out.println(contas.sacar("663218-12", "765-12", 79.99));
+
+       System.out.println(contas);
+
+   }
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+package sample.model;
+
+
+public class Conta {
+
+
+   private String numeroAgencia;
+
+   private String numeroConta;
+
+   private double saldo;
+
+
+   public String getNumeroAgencia() {
+
+       return numeroAgencia;
+
+   }
+
+   public void setNumeroAgencia(String numeroAgencia) {
+
+       this.numeroAgencia = numeroAgencia;
+
+   }
+
+   public String getNumeroConta() {
+
+       return numeroConta;
+
+   }
+
+   public void setNumeroConta(String numeroConta) {
+
+       this.numeroConta = numeroConta;
+
+   }
+
+   public double getSaldo() {
+
+       return saldo;
+
+   }
+
+   public void depositar(double valor) {
+
+       this.saldo += valor;
+
+   }
+
+   public double sacar(double valor){
+
+       if( this.saldo >= valor){
+
+           this.saldo -= valor;
+
+           return  valor;
+
+       } else {
+
+           return 0;
+
+       }
+
+   }
+
+
+   @Override
+
+   public String toString(){
+
+       return "Agência: " + numeroAgencia
+
+               + " Conta Corrente: " + numeroConta
+
+               + " Saldo: " + saldo;
+
+
+   }
+
+}
